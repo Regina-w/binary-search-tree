@@ -1,0 +1,45 @@
+void buildtree (bitree head, int x)
+{
+    if (head->data > x)
+    {
+        if (head->lson == NULL)
+        {
+            head->lson = new node();
+            head->lson->data = x;
+            return;
+        }
+        else
+            buildtree (head->lson, x);
+    }
+
+    else
+    {
+        if (head->rson == NULL)
+        {
+            head->rson = new node();
+            head->rson->data = x;
+            return ;
+        }
+        else
+            buildtree (head->rson, x);
+    }
+}
+
+int main ()
+{
+    scanf ("%d", &Size);
+    bitree head = new node();
+    cin >> a;
+    head->data = a;
+
+    for (int i=1; i<Size; i++)
+    {
+        cin >> a;
+        buildtree (head, a[i]);
+    }
+    
+    in_order (head);
+    cout << endl;
+
+    return 0;
+}
