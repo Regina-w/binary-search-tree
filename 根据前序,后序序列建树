@@ -1,0 +1,40 @@
+void createbitree (bitree head, int is, int ie, int px)
+{
+    if (is == ie)
+        return ;
+
+    head->data = Pre_order[px];
+    int num = find (is, ie, Pre_order[px]);
+
+    if (is < num)
+    {
+        bitree L = new node();
+        head->lson = L;
+        createbitree (L, is, num, px + 1);
+    }
+    if (num + 1 < ie)
+    {
+        bitree R = new node ();
+        head->rson = R;
+        createbitree (R, num+1, ie, px+num-is+1);
+    }
+
+}
+int main ()
+{
+    while (scanf ("%d", &Size) != EOF)
+    {
+        for (int i=0; i<Size; i++)
+            scanf ("%d", &In_order[i]);
+        for (int i=0; i<Size; i++)
+            scanf ("%d", &Pre_order[i]);
+
+        bitree head = new node();
+        createbitree (head, 0, Size, 0);
+
+        in_order (head);
+        cout << endl;
+    }
+
+    return 0;
+}
