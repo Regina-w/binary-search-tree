@@ -1,0 +1,33 @@
+///前序遍历
+void pre_order (bitree head)
+{
+    if (head == NULL)
+        return ;
+    printf ("%d ", head->data);
+    pre_order (head->lson);
+    pre_order (head->rson);
+}
+
+
+///中序遍历
+void in_order (bitree head)
+{
+    if (head == NULL)
+        return ;
+
+    in_order (head->lson);
+    printf ("%d ", head->data);
+    in_order (head->rson);
+}
+
+
+///后序遍历
+void post_order (bitree head)
+{
+    if (head == NULL)
+        return ;
+
+    post_order (head->lson);
+    post_order (head->rson);
+    printf ("%d ", head->data);
+}
